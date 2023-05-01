@@ -47,3 +47,7 @@ a
 {
 	text-decoration: none;
 }
+button:active, button, button:focus
+{
+	border: none;
+}
