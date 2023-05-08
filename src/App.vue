@@ -1,18 +1,15 @@
 <template>
-	<MyHeader></MyHeader>
-	<router-view></router-view>
-	<MyFooter></MyFooter>
+	<OrdersTemplate></OrdersTemplate>
 </template>
 
 <script>
 
-import MyHeader from './components/MyHeader.vue';
-import MyFooter from './components/MyFooter.vue';
+import OrdersTemplate from "@/components/OrdersTemplate.vue";
 
 
 export default {
 	name: 'App',
-	components: {MyHeader, MyFooter}
+	components: {OrdersTemplate}
 }
 
 </script>

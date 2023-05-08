@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85%;
+    font-family: 'Inter';
+}
+.column{
+    display: block;
+    margin: 5% 10%;
+}
+.input-area{
+    height: 65px;
+    width: 250px;
+    margin: 5%;
+}
+.input-area *{
+    width: 100%;
+}
+.input-text{
+    height: 30px;
+    border-radius: 13px;
+    padding-left: 10px;
+    color: black;
+}
+.input-text::placeholder{
+    color: black;
+}
+.input-area h3{
+    color: white;
+    margin: 3%;
+}
