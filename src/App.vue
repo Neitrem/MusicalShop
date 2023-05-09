@@ -1,15 +1,15 @@
 <template>
-	<OrdersTemplate></OrdersTemplate>
+	<CartTemplate></CartTemplate>
 </template>
 
 <script>
 
-import OrdersTemplate from "@/components/OrdersTemplate.vue";
+import CartTemplate from "@/components/CartTemplate.vue";
 
 
 export default {
 	name: 'App',
-	components: {OrdersTemplate}
+	components: {CartTemplate}
 }
 
 </script>

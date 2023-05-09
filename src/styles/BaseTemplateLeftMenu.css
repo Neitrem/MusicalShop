@@ -63,6 +63,8 @@
 }
 .personal-account-data{
     width: 60%;
+    padding-bottom:0;
+    position: relative;
 }
 .personal-account-buttons{
     padding-top: 15%;
