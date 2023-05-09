@@ -1,15 +1,15 @@
 <template>
-	<CartTemplate></CartTemplate>
+	<PersonalAccountProfile></PersonalAccountProfile>
 </template>
 
 <script>
 
-import CartTemplate from "@/components/CartTemplate.vue";
+import PersonalAccountProfile from "@/components/PersonalAccountProfile.vue";
 
 
 export default {
 	name: 'App',
-	components: {CartTemplate}
+	components: {PersonalAccountProfile}
 }
 
 </script>

@@ -24,7 +24,7 @@
       <h2>Итог: {{this.summa}}</h2>
       <router-link to="/" class="cart-result-button">
         <div class="cart-result-logo">
-          <p class="cart-result-text">Оформить</p>
+          <button type="submit" class="cart-result-text">Оформить</button>
         </div>
       </router-link>
     </div>
