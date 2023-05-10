@@ -2,7 +2,7 @@
 
 	<MyHeader></MyHeader>
 	
-	<MainPage></MainPage>
+	<router-view></router-view>
 
 	<MyFooter></MyFooter>
 </template>
@@ -12,15 +12,12 @@
 import MyFooter from './components/MyFooter.vue';
 import MyHeader from './components/MyHeader.vue';
 
-import MainPage from './components/pages/MainPage.vue'
-import PersonalAccountProfile from "@/components/PersonalAccountProfile.vue";
-
 
 
 export default {
 	name: 'App',
 
-	components: {MyFooter, MyHeader, MainPage, PersonalAccountProfile}
+	components: {MyFooter, MyHeader}
 }
 
 </script>

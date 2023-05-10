@@ -1,5 +1,4 @@
 <template>
-  <BaseTemplateLeftMenu>
     <div class="container">
       <div v-for="order in order_list" :key="order.id" class="order-item">
         <div class="item-photo">
@@ -13,15 +12,12 @@
         </div>
       </div>
     </div>
-  </BaseTemplateLeftMenu>
 </template>
 
 <script>
-import BaseTemplateLeftMenu from './BaseTemplateLeftMenu.vue';
 
 export default {
   name: "OrdersTemplate",
-  components: {BaseTemplateLeftMenu,},
   data() {
     return {
       order_list: [
