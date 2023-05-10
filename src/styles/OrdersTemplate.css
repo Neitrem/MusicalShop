@@ -1,51 +1,66 @@
 
-.container {
+.container-order {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2% 0;
     font-family: 'Inter';
+    height: 90%;
+    width: 95%;
+
+    overflow: scroll;
+    overflow-x: hidden;
+    
+}
+
+.container-order::-webkit-scrollbar {
+    width: 7px;
+    background-color: #223c50;
+}
+
+.container-order::-webkit-scrollbar-thumb {
+    background-color: #f9f9fd;
 }
 
 .order-item {
-    height: 100px;
-    width: 90%;
-    margin: 6% 0;
+    width: 100%;
+    margin-bottom: 6%;
     display: flex;
     flex-direction: row;
     justify-items: center;
     background-color: white;
+
+    border-radius: 15px;
 }
 
 .item-body, .item-photo {
     margin: 5%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;    
 }
 
 .item-photo img {
-    max-height: 70px;
-    width: auto;
-    box-shadow: #A3A3A3 4px 6px 4px;
+    height: 80px;
+    width: 45px;
+    border: 2px solid #D9D9D9;
+    object-fit: cover;
 }
 
 .item-body h4 {
-    font-size: 9px;
+    font-size: 14px;
 }
 
 .item-body h2 {
-    font-size: 12px;
+    font-size: 16px;
     margin: 6% 0;
 }
 
 .item-body h3 {
-    font-size: 9px;
+    font-size: 11px;
 }
 
 @media (min-width: 768px) {
     .order-item {
-        height: 120px;
         width: 90%;
         margin: 4% 0;
     }
@@ -55,7 +70,6 @@
     }
 
     .item-photo img {
-        max-height: 100px;
     }
 
     .item-body h4 {
@@ -75,7 +89,6 @@
 @media (min-width: 1440px) {
 
     .order-item {
-        height: 180px;
         width: 80%;
         margin: 2% 0;
     }
@@ -84,9 +97,6 @@
         margin: 5%;
     }
 
-    .item-photo img {
-        max-height: 140px;
-    }
 
     .item-body h4 {
         font-size: 18px;

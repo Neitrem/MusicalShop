@@ -3,20 +3,33 @@
     display: flex;
     justify-content: space-between;
     width: 90%;
+    height: 90%;
     font-size: 14px;
     flex-direction: column;
     font-family: 'Inter';
+    overflow: scroll;
+    overflow-x: hidden;
+    margin: 5% 0;
+}
+
+.container::-webkit-scrollbar {
+    width: 7px;
+    background-color: #223c50;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #f9f9fd;
 }
 
 .column {
     margin: 0;
     display: block;
+    width: 100%;
 }
 
 .input-area {
     height: 65px;
-    width: 140px;
-    margin: 6%;
+    width: 90%;
 }
 
 .input-area * {
@@ -28,11 +41,21 @@
 }
 
 .input-text {
+    width: 80%;
     height: 25px;
     color: black;
     border-radius: 13px;
     padding-left: 10px;
+
+    border: none;
 }
+
+.input-text:focus
+{
+    border: none;
+    outline: none;
+}
+
 
 .input-area h3 {
     margin: 6%;
@@ -49,14 +72,10 @@
         width: 90%;
     }
 
-    .column {
-        margin: 5% 5%;
-    }
+
 
     .input-area {
         height: 65px;
-        width: 120px;
-        margin: 6%;
     }
 
     .input-area * {
@@ -64,7 +83,7 @@
     }
 
     .input-text {
-        height: 25px;
+        height: 30px;
     }
 
     .input-area h3 {
@@ -75,12 +94,8 @@
 @media (min-width: 1440px) {
     .container {
         flex-direction: row;
-        width: 85%;
     }
 
-    .column {
-        margin: 5% 10%;
-    }
 
     .input-area {
         height: 65px;

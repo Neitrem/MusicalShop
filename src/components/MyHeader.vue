@@ -132,14 +132,14 @@ export default {
 	align-items: center;
 
 
-	width: 90%;
+	width: 100%;
 
 
 	&__wrapper
 	{
 		background-color: $background-color-gray;
-		width: 90%;
-		padding: 0 5%;
+		width: 96%;
+		padding: 0 2%;
 		height: 60px;
 		
 		border-radius: 0 0 15px 15px;
