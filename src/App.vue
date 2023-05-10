@@ -1,20 +1,41 @@
 <template>
-	<PersonalAccountProfile></PersonalAccountProfile>
+
+	<MyHeader></MyHeader>
+	
+	<MainPage></MainPage>
+
+	<MyFooter></MyFooter>
 </template>
 
 <script>
 
+import MyFooter from './components/MyFooter.vue';
+import MyHeader from './components/MyHeader.vue';
+
+import MainPage from './components/pages/MainPage.vue'
 import PersonalAccountProfile from "@/components/PersonalAccountProfile.vue";
+
 
 
 export default {
 	name: 'App',
-	components: {PersonalAccountProfile}
+
+	components: {MyFooter, MyHeader, MainPage, PersonalAccountProfile}
 }
 
 </script>
 
 <style lang="scss">
 @import '@/styles/reset.css';
+
+#app
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	min-width: 320px;
+}
+
 
 </style>

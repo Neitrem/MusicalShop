@@ -42,8 +42,7 @@ export default {
 
 		margin: 0 10%;
 	}
-	position: fixed;
-	bottom: 0px;
+
 	height: 32px;
 	width: 100%;
 	background-color: $background-color-gray;
@@ -58,22 +57,29 @@ export default {
 		{
 			&__text
 			{
-				font-family: $font-family;
-				font-size: 20px;
-				color: $text-color-white;
-				margin: 2px;
+				font-size: 14px;
+				@extend %text-white;
+				@media screen and (min-width: 1440px){
+					font-size: 16px;
+				}
 			}
+
+			margin-left: 10px
 		}
 	}
 
 	.rights
 	{
-		font-family: $font-family;
-		font-size: 20px;
-		color: $text-color-white;
+		font-size: 14px;
+		@extend %text-white;
+		@media screen and (min-width: 1440px){
+			font-size: 16px;
+		}
 	}
 	
 }
+
+
 
 
 </style>

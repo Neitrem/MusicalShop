@@ -73,6 +73,8 @@ export default {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+
+		
 		.logo{
 			background-color: $backgroung-color-yelow;
 			border-radius: 15px;
@@ -87,19 +89,18 @@ export default {
 			align-items: center;
 
 			&__text{
-				color: $text-color-white;
-
-				font-family: $font-family;
-				font-style: normal;
-				font-weight: 800;
-				font-size: 16px;
-
-				text-shadow: 0 4px 4px rgba($color: #000000, $alpha: 0.25);
+				@extend %text-logo;
 			}
 		}
 		.search
 		{
+			
 			display: none;
+
+			&__input
+			{
+				@extend %text-search;
+			}
 		}
 		.menu
 		{
@@ -152,10 +153,6 @@ export default {
 
 				box-shadow: 0 4px 0 0 $shadow-color-yelow;
 
-				&__text
-				{
-					font-size: 24px;
-				}
 			}
 
 			.search
@@ -172,9 +169,6 @@ export default {
 
 					width: 100%;
 					height: 28px;
-					
-					font-size: 16px;
-
 					margin: 0 5px;
 
 					&:focus
@@ -184,11 +178,6 @@ export default {
 
 					&::placeholder
 					{
-						font-family: $font-family;
-						font-style: normal;
-						font-weight: 400;
-						font-size: 16px;
-
 						color: #A3A3A3;	
 					}
 				}
@@ -245,11 +234,6 @@ export default {
 		{
 			width: 338px;
 			height: 86px;
-
-			&__text
-			{
-				font-size: 48px;
-			}
 		}
 
 		.search
@@ -259,12 +243,6 @@ export default {
 				{
 					width: 100%;
 					height: 48px;
-					
-					font-size: 32px;
-					&::placeholder
-					{
-						font-size: 32px;
-					}
 				}
 
 				&__button
