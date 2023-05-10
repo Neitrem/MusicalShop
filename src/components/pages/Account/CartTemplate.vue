@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-cart">
       <div v-for="order in order_list" :key="order.id" class="order-item">
         <div class="item-photo">
           <img :src="order.order_photo_link" alt=".">

@@ -1,36 +1,59 @@
-.container {
+.container-cart {
+    width: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2% 0 185px 0;
+
     font-family: 'Inter';
+    overflow: scroll;
+    overflow-x: hidden;
+
+    height: 80%;
+}
+
+.container-cart::-webkit-scrollbar {
+    width: 7px;
+    background-color: #223c50;
+}
+
+.container-cart::-webkit-scrollbar-thumb {
+    background-color: #f9f9fd;
 }
 
 .order-item {
-    height: 100px;
-    width: 90%;
-    margin: 6% 0;
+
+    width: 100%;
+    margin-bottom: 6%;
     display: flex;
     flex-direction: row;
     justify-items: center;
     background-color: white;
 }
 
-.item-body, .item-photo {
-    margin: 5%;
+.item-body {
+    width: 55%;
+    margin: 5% 5% 5% 1%;
+    
+}
+
+.item-photo {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 32%;
+    height: 80%;
+    margin: 5% 5% 5% 1%;
 }
 
 .item-photo img {
-    max-height: 70px;
-    width: auto;
-    box-shadow: #A3A3A3 4px 6px 4px;
+    height: 100%;
+    width: 100%;
+    border: 2px solid #D9D9D9;
+    object-fit: cover;
 }
 
 .item-body h2 {
-    font-size: 12px;
+    font-size: 16px;
     margin: 12% 0;
 }
 
@@ -94,7 +117,7 @@
 }
 
 .cart-result {
-    height: 80px;
+
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -104,7 +127,7 @@
     bottom: 0;
     box-sizing: border-box;
     background-color: white;
-    border-radius: 0 0 25px 25px;
+    border-radius: 0 0 15px 15px;
     border: 1px solid #535353;
 }
 
@@ -118,10 +141,11 @@
 }
 
 .cart-result-text {
+    background: none;
     font-size: 10px;
     color: black;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 400;
     font-family: 'Inter';
 
     text-shadow: 0 4px 4px rgba(255, 255, 255, 0.25);
@@ -142,8 +166,7 @@
 
 @media (min-width: 768px) {
     .order-item {
-        height: 120px;
-        width: 90%;
+        width: 95%;
         margin: 4% 0;
     }
 
@@ -151,9 +174,6 @@
         margin: 5%;
     }
 
-    .item-photo img {
-        max-height: 100px;
-    }
 
     .item-body h2 {
         font-size: 18px;
@@ -189,7 +209,7 @@
     }
 
     .cart-result {
-        height: 120px;
+
         width: 100%;
     }
 
@@ -199,7 +219,6 @@
     }
 
     .cart-result-text {
-        font-weight: 800;
         font-size: 14px;
     }
 
@@ -217,17 +236,12 @@
 @media (min-width: 1440px) {
 
     .order-item {
-        height: 180px;
         width: 80%;
         margin: 2% 0;
     }
 
     .item-body, .item-photo {
         margin: 5%;
-    }
-
-    .item-photo img {
-        max-height: 140px;
     }
 
     .item-body h2 {
@@ -257,10 +271,6 @@
         font-size: 20px;
     }
 
-    .cart-result {
-        height: 150px;
-        width: 100%;
-    }
 
     .cart-result-logo {
         width: 180px;
