@@ -1,18 +1,15 @@
 <template>
-	<MyHeader></MyHeader>
-	<router-view></router-view>
-	<MyFooter></MyFooter>
+	<PersonalAccountProfile></PersonalAccountProfile>
 </template>
 
 <script>
 
-import MyHeader from './components/MyHeader.vue';
-import MyFooter from './components/MyFooter.vue';
+import PersonalAccountProfile from "@/components/PersonalAccountProfile.vue";
 
 
 export default {
 	name: 'App',
-	components: {MyHeader, MyFooter}
+	components: {PersonalAccountProfile}
 }
 
 </script>
