@@ -4,7 +4,7 @@
         :itemArray="cards"
         >
         </vCarousel>
-        <div class="bottom-line"></div>
+        <vBottomLine />
         <div class="categories">
             <div class="categories-item">
                 <img src="../../img/categories-1.png" alt="" class="categories-item__img">
@@ -26,11 +26,12 @@
 
 <script lang="js">
 import vCarousel from '../v-carousel.vue';
+import vBottomLine from '../UI/v-bottom-line.vue';
 
 export default {
     name: "mainPage",
     components: {
-        vCarousel
+        vCarousel, vBottomLine
     },
 
     data () {
@@ -62,14 +63,7 @@ export default {
     width: 95%;
 }
 
-.bottom-line
-{
-    width: 90%;
-    height: 1px;
-    background-color: $background-color-gray;
 
-    margin: 20px auto;
-}
 
 .categories
 {

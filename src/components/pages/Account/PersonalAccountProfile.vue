@@ -1,5 +1,4 @@
 <template>
-  <BaseTemplateLeftMenu>
     <div class="container">
       <div class="column">
         <div class="input-area">
@@ -37,15 +36,12 @@
         </div>
       </div>
     </div>
-  </BaseTemplateLeftMenu>
 </template>
 
 <script>
-import BaseTemplateLeftMenu from './BaseTemplateLeftMenu.vue';
 
 export default {
   name: "PersonalAccountProfile",
-  components: {BaseTemplateLeftMenu,},
   input_name: ""
 }
 </script>

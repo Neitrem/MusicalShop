@@ -8,40 +8,10 @@
     align-items: center;
 }
 
-.menu-text {
-    font-size: 10px;
-    color: black;
-    font-style: normal;
-    font-weight: 800;
-    font-family: 'Inter';
 
-    text-shadow: 0 4px 4px rgba(255, 255, 255, 0.25);
-}
-
-.menu-buttons {
-    width: 95%;
-    margin-top: 2%;
-    height: 30px;
-    padding: 0 10% 2% 10%;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: black 1px solid;
-}
-
-.menu-button {
-    border-radius: 15px;
-    background-color: #F1E80A;
-    box-shadow: 0 3px 0 0 #A59E00;
-}
-
-.menu-center {
-    padding: 0 10%;
-    display: flex;
-    justify-content: center;
-}
 
 .page-content {
-    margin-top: 1%;
+    width: 100%;
     display: flex;
     justify-items: center;
     justify-content: center;
@@ -117,28 +87,6 @@
         height: 40px;
     }
 
-    .menu-text {
-        font-size: 16px;
-    }
-
-    .menu-buttons {
-        width: 95%;
-        margin-top: 2%;
-        height: 40px;
-        padding: 0 10% 2% 10%;
-    }
-
-    .menu-button {
-        border-radius: 15px;
-    }
-
-    .menu-center {
-        padding: 0 10%;
-    }
-
-    .page-content {
-        margin-top: 1%;
-    }
 
     .personal-account {
         width: 80%;
@@ -179,30 +127,6 @@
     .logo {
         width: 240px;
         height: 60px;
-    }
-
-    .menu-text {
-        font-size: 20px;
-    }
-
-    .menu-buttons {
-        width: 85%;
-
-        margin-top: 2%;
-        height: 60px;
-        padding: 0 15% 2% 15%;
-    }
-
-    .menu-button {
-        border-radius: 15px;
-    }
-
-    .menu-center {
-        padding: 0 10%;
-    }
-
-    .page-content {
-        margin-top: 1%;
     }
 
     .personal-account {

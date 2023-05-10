@@ -19,55 +19,130 @@
 					<img src="@/svg/search.svg" alt="search">
 				</button>
 
-				<router-link to="/orders">
+				<router-link to="/user/orders">
 					<div class="menu__icon">
 						<img src="@/svg/orders.svg" alt="orders">
 					</div>
 				</router-link>
 
-				<router-link to="/profile">
+				<router-link to="/user">
 					<div class="menu__icon">
 						<img src="@/svg/profile.svg" alt="profile">
 					</div>
 				</router-link>
 				
-				<router-link to="/cart">
+				<router-link to="/user/cart">
 					<div class="menu__icon">
 						<img src="@/svg/cart.svg" alt="cart">
 					</div>
 				</router-link>
 			</div>
 		</div>
+		<nav class="menu-buttons">
+			<router-link to="/" class="menu-button">
+				<p class="menu-button__text">
+					Все категории
+				</p>
+			</router-link>
+			<router-link to="/" class="menu-button">
+				<p class="menu-button__text">
+					О нас
+				</p>
+			</router-link>
+		</nav>
+		<vBottomLine/>
 	</header>
 </template>
 
 <script lang="js">
-export default {
+import vBottomLine from './UI/v-bottom-line.vue';
 
+export default {
+	components: {vBottomLine}
 }
 </script>
 
 <style scoped lang="scss">
 @import '@/styles/variables.scss';
 
+
+
+
+.menu-buttons {
+    display: none;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+	.menu-buttons {
+		width: 80%;
+		display: flex;
+        margin-top: 15px;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.menu-button {
+		width: 180px;
+		height: 40px;
+		text-align: center;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border-radius: 15px;
+		background-color: #F1E80A;
+		box-shadow: 0 3px 0 0 #A59E00;
+
+		&__text
+		{
+
+			font-size: 16px;
+			color: black;
+			font-style: normal;
+			font-weight: 400;
+			font-family: 'Inter';
+
+			text-shadow: 0 4px 4px rgba(255, 255, 255, 0.25);
+		}
+	}
+
+}
+@media (min-width: 1440px) {
+	.menu-button {
+		width: 210px;
+		height: 50px;
+
+		&__text
+		{
+			font-size: 20px;
+		}
+	}
+
+}
+
 // Phone
 .header
 {
-	background-color: $background-color-gray;
+	
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 
-	height: 60px;
-	width: 100%;
 
-	border-radius: 0 0 15px 15px;
+	width: 90%;
+
 
 	&__wrapper
 	{
+		background-color: $background-color-gray;
 		width: 90%;
-		height: 60%;
+		padding: 0 5%;
+		height: 60px;
+		
+		border-radius: 0 0 15px 15px;
 
 		display: flex;
 		flex-direction: row;
@@ -141,11 +216,12 @@ export default {
 {
 	.header
 	{
-		height: 90px;
-		width: 90%;
+		
+		
 		margin: 0 auto;
 		&__wrapper
 		{
+			height: 90px;
 			.logo
 			{
 				width: 194px;
@@ -229,7 +305,13 @@ export default {
 @media (min-width: 1440px)
 {
 	.header{
-		height: 134px;
+		
+		&__wrapper
+		{
+			width: 90%;
+			height: 134px;
+			
+		}
 		.logo
 		{
 			width: 338px;
