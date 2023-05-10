@@ -90,8 +90,8 @@ export default {
 {
 	display: flex;
 	align-items: center;
-	width: 95%;
-	justify-content: space-between
+	width: 100%;
+	justify-content: space-around
 }
 .carousel
 {
@@ -124,10 +124,10 @@ export default {
 
 	&__button
 	{
-		scale: 0.7;
+		scale: 0.6;
 		background: none;
 		cursor: pointer;
-		padding: 20px;
+		padding: 10px;
 		border-radius: 15px;
 		&:hover
 		{
@@ -135,11 +135,23 @@ export default {
 		}
 		&:active
 		{
-			padding: 15px;
+			padding: 5px;
 			margin: 5px;
 		}
 	}
 }
+@media screen and (min-width: 425px) {
+	.wrapper
+	{
+		display: flex;
+		align-items: center;
+		width: 90%;
+		justify-content: space-between
+	}
+}
+
+
+
 @media screen  and (min-width: 768px){
 	.carousel
 	{

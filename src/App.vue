@@ -1,22 +1,22 @@
 <template>
-	<vHeader></vHeader>
+	<MyHeader></MyHeader>
 	
 	<MainPage></MainPage>
 
-	<vFooter></vFooter>
+	<MyFooter></MyFooter>
 </template>
 
 <script>
 
-import vFooter from './components/v-footer.vue';
-import vHeader from './components/v-header.vue';
+import MyFooter from './components/MyFooter.vue';
+import MyHeader from './components/MyHeader.vue';
 
 import MainPage from './components/pages/MainPage.vue'
 
 
 export default {
 	name: 'App',
-	components: {vFooter, vHeader, MainPage}
+	components: {MyFooter, MyHeader, MainPage}
 }
 
 </script>
