@@ -51,14 +51,27 @@
 			</router-link>
 		</nav>
 		<vBottomLine/>
+		<vAuthentication :dataType="'log-in'" v-show="this.$store.getters.getAuthModalWindowActive"/>
 	</header>
 </template>
 
 <script lang="js">
 import vBottomLine from './UI/v-bottom-line.vue';
+import vAuthentication from './v-authentication.vue';
 
 export default {
-	components: {vBottomLine}
+	name: "v-header",
+	components: {vBottomLine, vAuthentication},
+	data () {
+		return {
+			modalWindowActive: false
+		}
+	},
+	methods: {
+		openCloseModalWindow() {
+			this.modalWindowActive = !this.modalWindowActive;
+		}
+	},
 }
 </script>
 
