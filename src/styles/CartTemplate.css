@@ -9,6 +9,8 @@
     overflow-x: hidden;
 
     height: 80%;
+
+    margin-top: 15px;
 }
 
 .container-cart::-webkit-scrollbar {
@@ -21,7 +23,6 @@
 }
 
 .order-item {
-
     width: 100%;
     margin-bottom: 6%;
     display: flex;
@@ -236,12 +237,20 @@
 @media (min-width: 1440px) {
 
     .order-item {
-        width: 80%;
+        max-height: 190px;
+        width: 90%;
         margin: 2% 0;
     }
 
-    .item-body, .item-photo {
-        margin: 5%;
+
+    .item-body{
+        width: 70%;
+        margin: 2%;
+    }
+    .item-photo {
+        width: 20%;
+        height: 80%;
+        margin: 2%;
     }
 
     .item-body h2 {

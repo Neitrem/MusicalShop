@@ -19,23 +19,27 @@
 					<img src="@/svg/search.svg" alt="search">
 				</button>
 
-				<router-link to="/user/orders">
+				<router-link class="order_icon" to="/user/orders">
 					<div class="menu__icon">
 						<img src="@/svg/orders.svg" alt="orders">
 					</div>
 				</router-link>
 
-				<router-link to="/user">
+				<router-link class="profile_icon" to="/user">
 					<div class="menu__icon">
 						<img src="@/svg/profile.svg" alt="profile">
 					</div>
 				</router-link>
 				
-				<router-link to="/user/cart">
+				<router-link class="cart_icon" to="/user/cart">
 					<div class="menu__icon">
 						<img src="@/svg/cart.svg" alt="cart">
 					</div>
 				</router-link>
+
+				<vMenu class="menu_icon" />
+
+				
 			</div>
 		</div>
 		<nav class="menu-buttons">
@@ -58,10 +62,11 @@
 <script lang="js">
 import vBottomLine from './UI/v-bottom-line.vue';
 import vAuthentication from './v-authentication.vue';
+import vMenu from './v-menu.vue';
 
 export default {
 	name: "v-header",
-	components: {vBottomLine, vAuthentication},
+	components: {vBottomLine, vAuthentication, vMenu},
 	data () {
 		return {
 			modalWindowActive: false
@@ -218,6 +223,13 @@ export default {
 					height: 20px;
 				}
 			}
+
+			.order_icon, .cart_icon
+			{
+				display: none;
+			}
+
+			
 		}
 	}
 
@@ -308,6 +320,15 @@ export default {
 						width: 31px;
 						height: 31px;
 					}
+				}
+				.order_icon, .cart_icon
+				{
+					display: block;
+				}
+
+				.menu_icon
+				{
+					display: none;
 				}
 			}
 		}
