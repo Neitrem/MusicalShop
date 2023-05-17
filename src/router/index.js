@@ -5,6 +5,7 @@ import PersonalAccountProfile from "@/components/pages/Account/PersonalAccountPr
 import OrdersTemplate from "@/components/pages/Account/OrdersTemplate.vue";
 import CartTemplate from "@/components/pages/Account/CartTemplate.vue";
 import BaseTemplateLeftMenu from "@/components/BaseTemplateLeftMenu.vue";
+import AllCategoriesPage from "@/components/pages/AllCategoriesPage.vue";
 
 
 const routes = [
@@ -28,6 +29,10 @@ const routes = [
 		]
 	},
 	{path: '/', component: MainPage},
+	{
+		path: '/categories',
+		component: AllCategoriesPage
+	},
 ];
 
 const router = createRouter({
