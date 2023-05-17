@@ -69,6 +69,9 @@ export default {
 		width: 20px;
 		height: 20px;
 	}
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
 }
 .menu-container
 {
@@ -109,6 +112,10 @@ export default {
 
 		font-family: $font-family;
 
+	}
+
+	@media screen and (min-width: 768px) {
+		width: 70%;
 	}
 }
 </style>
