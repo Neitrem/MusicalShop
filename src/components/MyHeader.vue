@@ -19,19 +19,25 @@
 					<img src="@/svg/search.svg" alt="search">
 				</button>
 
-				<router-link class="order_icon" to="/user/orders">
+				<router-link v-if="this.$store.getters.getAuthState" class="order_icon" to="/user/orders">
 					<div class="menu__icon">
 						<img src="@/svg/orders.svg" alt="orders">
 					</div>
 				</router-link>
 
-				<router-link class="profile_icon" to="/user">
+				<router-link v-if="this.$store.getters.getAuthState" class="profile_icon" to="/user">
 					<div class="menu__icon">
 						<img src="@/svg/profile.svg" alt="profile">
 					</div>
 				</router-link>
+
+				<button @click="this.$store.commit('authModalWindowChangeActive')" v-if="!this.$store.getters.getAuthState" class="profile_icon">
+					<div class="menu__icon">
+						<img src="@/svg/profile.svg" alt="profile">
+					</div>
+				</button>
 				
-				<router-link class="cart_icon" to="/user/cart">
+				<router-link v-if="this.$store.getters.getAuthState" class="cart_icon" to="/user/cart">
 					<div class="menu__icon">
 						<img src="@/svg/cart.svg" alt="cart">
 					</div>
@@ -227,6 +233,12 @@ export default {
 			.order_icon, .cart_icon
 			{
 				display: none;
+			}
+
+			.profile_icon
+			{
+				background: none;
+				cursor: pointer;
 			}
 
 			
