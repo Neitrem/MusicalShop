@@ -6,13 +6,16 @@
 		<router-link @click="off" class="menu-link" to="/">
 			<div class="menu-button">Все категории</div>
 		</router-link>
-		<router-link @click="off" class="menu-link" to="/user">
+		<router-link v-if="this.$store.getters.getAuthState" @click="off" class="menu-link" to="/user">
 			<div class="menu-button">Аккаунт</div>
 		</router-link>
-		<router-link @click="off" class="menu-link" to="/user/cart">
+		<button v-if="!this.$store.getters.getAuthState" @click="off();this.$store.commit('authModalWindowChangeActive')" class="menu-link">
+			<div class="menu-button">Вход/Регистрация</div>
+		</button>
+		<router-link v-if="this.$store.getters.getAuthState" @click="off" class="menu-link" to="/user/cart">
 			<div class="menu-button">Корзина</div>
 		</router-link>
-		<router-link @click="off" class="menu-link" to="/user/order">
+		<router-link v-if="this.$store.getters.getAuthState" @click="off" class="menu-link" to="/user/order">
 			<div class="menu-button">Заказы</div>
 		</router-link>
 		<router-link @click="off" class="menu-link" to="/">

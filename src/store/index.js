@@ -5,7 +5,7 @@ const store = createStore({
     state() {
 		return {
 			authWindow: {
-				authModalWindowIsActive: true,
+				authModalWindowIsActive: false,
 				error: {
 					errorWindowActive: false,
 					text: 'Неправильные почта или пароль'
@@ -43,6 +43,18 @@ const store = createStore({
 
 		setAccessToken(state, token) {
 			state.user.tokens.access = token
+		},
+
+		deleteAccessToken(state) {
+			state.user.tokens.access = '';
+		},
+
+		updateAccessToken(state, new_token) {
+			state.user.tokens.access = new_token;
+		},
+
+		changeAuthStatus(state, status) {
+			state.user.authorized = status
 		}
 	},
 	getters: {
@@ -56,6 +68,10 @@ const store = createStore({
 
 		getAuthErrorText(state) {
 			return state.authWindow.error.text;
+		},
+
+		getAuthState(state) {
+			return state.user.authorized;
 		}
 	},
 	actions: {
@@ -70,6 +86,7 @@ const store = createStore({
 					console.log(response)
 					commit('setAccessToken', response.data.access)
 					commit("authModalWindowChangeActive")
+					commit("changeAuthStatus", true)
 				})
 				.catch((err) => {
 					console.log('ERROR::LOG_IN' + '/n' + err)
