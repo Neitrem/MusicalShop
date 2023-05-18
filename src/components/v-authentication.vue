@@ -4,19 +4,24 @@
 		<div @click="this.$store.commit('authModalWindowChangeActive')" class="close">
 			<img src="../svg/close.svg" alt="close">
 		</div>
+		<div v-show="this.$store.getters.getAuthErrorActive" class="error-panel">
+			<p class="error-panel__text">
+				{{ this.$store.getters.getAuthErrorText }}
+			</p>
+		</div>
 		<h3 class="auth-panel__title"> {{ this.dataTypes[dataType].text.title }}</h3>
-		<form :method="this.dataTypes[dataType].method" path="" class="auth-panel__inner">
+		<form  path="" class="auth-panel__inner">
 			<div class="inputs">
 				<div class="input-item">
 					<p class="input-item__name"></p>
-					<input type="text" name="email" placeholder="E-mail">
+					<input v-model="user.email" type="text" name="email" placeholder="E-mail">
 				</div>
 				<div class="input-item">
 					<p class="input-item__name"></p>
-					<input type="text" name="password" placeholder="Password">
+					<input v-model="user.password" type="text" name="password" placeholder="Password">
 				</div>
 			</div>
-			<button type="submit" @click.prevent="openClose" class="submit-btn">
+			<button type="submit" @click.prevent="sendRequest" class="submit-btn">
 				{{ this.dataTypes[dataType].text.action }}
 			</button>
 		</form>
@@ -31,21 +36,23 @@ export default {
 		return {
 			dataTypes: {
 				"log-in": {
-					method: "GET",
-					path: "/smthng_log-in",
+					action: "log_in",
 					text: {
 						title: "Вход",
 						action: "Войти"
 					}
 				},
 				"registration": {
-					method: "POST",
-					path: "/smthng_reg",
+					action: "reg",
 					text: {
 						title: "Регистрация",
 						action: "Зарегистрироваться"
 					}
 				}
+			},
+			user: {
+				email: '',
+				password: ''
 			}
 		}
 	},
@@ -56,8 +63,12 @@ export default {
 		}
 	},
 	methods: {
-		openClose() {
-			this.$store.commit("authModalWindowChangeActive")
+		sendRequest() {
+			const user = this.user;
+			this.$store.dispatch(
+				this.dataTypes[this.dataType].action,
+				user
+			);
 		}
 	}
 }
@@ -105,6 +116,29 @@ export default {
 	justify-content: space-around;
 	align-items: center;
 
+	.error-panel
+	{
+		width: 80%;
+		min-height: 80px;
+		border-radius: 0  0 15px 15px;
+
+		position: absolute;
+		top: 0;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		background-color: rgba($color: red, $alpha: 0.4);
+		&__text
+		{	
+			font-family: $font-family;
+			font-size: 20px;
+			color: $text-color-white;
+			text-align: center;
+		}
+	}
+
 	&__title
 	{
 		font-family: $font-family;
@@ -130,6 +164,7 @@ export default {
 			width: 45%;
 			font-size: 16px;
 			line-height: 25px;
+			cursor: pointer;
 		}
 
 		.inputs
