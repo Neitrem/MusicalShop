@@ -71,9 +71,7 @@ export default {
   border-radius: 15px;
 }
 
-p {
-  color: #ffffff;
-}
+
 
 .preview__img {
   max-width: 260px;
