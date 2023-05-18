@@ -2,14 +2,15 @@
   <div class="categories__wrapper">
     <div class="products">
       <ul class="products__list">
-          <li class="products__item"><CardProduct/></li>
-          <li class="products__item"><CardProduct/></li>
-          <li class="products__item"><CardProduct/></li>
-          <li class="products__item"><CardProduct/></li>
-          <li class="products__item"><CardProduct/></li>
-          <li class="products__item"><CardProduct/></li>
+        <router-link to="/gituar/id"
+          ><li class="products__item"><CardProduct /></li
+        ></router-link>
+        <li class="products__item"><CardProduct /></li>
+        <li class="products__item"><CardProduct /></li>
+        <li class="products__item"><CardProduct /></li>
+        <li class="products__item"><CardProduct /></li>
+        <li class="products__item"><CardProduct /></li>
       </ul>
-      
     </div>
     <aside>
       <btnAside name="Гитары" />
@@ -30,7 +31,6 @@ export default {
 </script>
 
 <style>
-
 .categories__wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -39,8 +39,6 @@ export default {
   grid-template-columns: 1fr 4fr;
   grid-template-areas: "sidebar  products";
 }
-
-
 
 aside {
   grid-area: sidebar;
@@ -57,7 +55,6 @@ aside {
   grid-area: products;
   padding: 0;
   max-width: 900px;
-   
 }
 
 .products__list {
@@ -73,10 +70,10 @@ aside {
 }
 
 @media (max-width: 530px) {
-	.categories__wrapper {
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "sidebar fd  products  ds";
-}
+  .categories__wrapper {
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "sidebar fd  products  ds";
+  }
 }
 </style>

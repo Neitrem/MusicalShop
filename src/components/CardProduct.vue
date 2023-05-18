@@ -30,7 +30,7 @@ export default {
 }
 
 .card__info {
-  background: rgba(255, 255, 255, 0.83);
+  background: rgba(255, 255, 255, 0.73);
   border-radius: 0px 0px 15px 15px;
   padding: 7px;
 }
