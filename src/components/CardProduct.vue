@@ -54,5 +54,13 @@ export default {
   font-style: normal;
   font-weight: 200;
   font-size: 14px;
+  opacity: 0.8;
+}
+
+@media (max-width: 530px) {
+	.card__wrapper {
+  width: 180px;
+  height: 330px;
+}
 }
 </style>

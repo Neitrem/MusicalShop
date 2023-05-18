@@ -12,9 +12,9 @@
       
     </div>
     <aside>
-      <btnAside class="btnAside" name="Гитары" />
-      <btnAside class="btnAside" name="Усилители" />
-      <btnAside class="btnAside" name="Аксессуары" />
+      <btnAside name="Гитары" />
+      <btnAside name="Усилители" />
+      <btnAside name="Аксессуары" />
     </aside>
   </div>
 </template>
@@ -40,10 +40,7 @@ export default {
   grid-template-areas: "sidebar  products";
 }
 
-.btnAside:hover {
-  opacity: 0.9;
-  cursor: pointer;
-}
+
 
 aside {
   grid-area: sidebar;
@@ -63,16 +60,6 @@ aside {
    
 }
 
-.categories__btn-choose {
-  background: #ffffff;
-  border-radius: 15px;
-  width: 174px;
-  height: 49px;
-  font-weight: 400;
-  font-size: 20px;
-  filter: drop-shadow(0px 5px 0px #a7a7a7);
-}
-
 .products__list {
   display: flex;
   flex-wrap: wrap; /* Установка свойства flex-wrap на wrap */
@@ -83,5 +70,13 @@ aside {
 .products__item:hover {
   transition-duration: 0.7;
   opacity: 0.7;
+}
+
+@media (max-width: 530px) {
+	.categories__wrapper {
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "sidebar fd  products  ds";
+}
 }
 </style>
