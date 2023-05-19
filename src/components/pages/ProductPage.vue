@@ -8,8 +8,11 @@
         </h2>
         <div class="preview__action-block">
           <p class="preview__price">36 999 руб.</p>
-          <btnAside class="preview__cart" name="В корзину" ></btnAside>
-          <btnAside class="preview__one-click" name="Купить в один клик" ></btnAside>
+          <btnAside class="preview__cart" name="В корзину"></btnAside>
+          <btnAside
+            class="preview__one-click"
+            name="Купить в один клик"
+          ></btnAside>
         </div>
       </div>
     </div>
@@ -54,7 +57,7 @@
 import btnAside from "@/components/UI/button-aside.vue";
 
 export default {
-  components: {btnAside},
+  components: { btnAside },
   data() {
     return {
       imageUrl: require("@/img/pop_img-2.png"),
@@ -64,14 +67,40 @@ export default {
 </script>
 
 <style>
-.product__wrapper {
-  background: #535353;
-  width: 1200px;
-  padding: 60px 120px;
-  border-radius: 15px;
+.info__description {
+  color: #fff;
+  font-size: 24px;
 }
 
+.info__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
+.info__button {
+  width: 20%;
+  padding: 15px 5px;
+  border-radius: 20px;
+  color: #fff;
+  background-color: #535353;
+  border: #fff solid 1px;
+  font-size: 24px;
+}
+
+.product__wrapper {
+  background: #535353;
+  max-width: 1180px;
+  padding: 60px 120px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.preview__price {
+  color: white;
+}
 
 .preview__img {
   max-width: 260px;
@@ -107,11 +136,24 @@ export default {
   align-items: flex-end;
 }
 
-.preview__cart, .preview__one-click {
+.preview__cart,
+.preview__one-click {
   width: 30%;
 }
 
 .preview__cart {
-  background-color: #F1E80A;
+  background-color: #f1e80a;
+}
+
+@media (max-width: 1280px) {
+  .info__button {
+  width: auto;
+}
+
+.preview__cart,
+.preview__one-click {
+  min-width: 200px;
+  width: auto;
+}
 }
 </style>
