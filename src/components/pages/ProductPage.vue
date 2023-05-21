@@ -1,13 +1,13 @@
 <template>
   <div class="product__wrapper">
     <div class="product__preview preview">
-      <img class="preview__img" :src="imageUrl" alt="preview-img" />
+      <img class="preview__img" :src="product.imageUrl" alt="preview-img" />
       <div class="preview__info">
         <h2 class="preview__title">
-          FENDER SQUIER Affinity 2021 Stratocaster HH LRL Olympic White
+          {{ product.title }}
         </h2>
         <div class="preview__action-block">
-          <p class="preview__price">36 999 руб.</p>
+          <p class="preview__price">{{ product.price }}</p>
           <btnAside class="preview__cart" name="В корзину"></btnAside>
           <btnAside
             class="preview__one-click"
@@ -24,7 +24,7 @@
         <InfoButton title="Отзывы" @showInfo="handleEvent"></InfoButton>
       </div>
       <p class="info__description">
-        {{info}}
+        {{ info }}
       </p>
     </div>
   </div>
@@ -38,19 +38,30 @@ export default {
   components: { btnAside, InfoButton },
   data() {
     return {
-      imageUrl: require("@/img/pop_img-2.png"),
-      info: "Нажми на любую кнопку",
+      
+      info: "",
+      product: {
+        title: "FENDER SQUIER Affinity 2021 Stratocaster HH LRL Olympic White",
+        price: "36 999 руб.",
+        imageUrl: require("@/img/pop_img-2.png"),
+      },
     };
   },
   methods: {
-  handleEvent(eventData) {
-    this.info = eventData
+    handleEvent(eventData) {
+      this.info = eventData;
+    },
+    getInfo() {
+      this.info = 'Нажми на любую кнопку';
+    }
+  },
+  mounted() {
+    this.getInfo();
   }
-}
 };
 </script>
 
-<style >
+<style>
 .info__description {
   color: #fff;
   font-size: 24px;
@@ -63,8 +74,6 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
-
 
 .product__wrapper {
   background: #535353;
@@ -123,15 +132,15 @@ export default {
 
 @media (max-width: 1280px) {
   .info__button {
-  width: auto;
-  padding: 15px 10px;
-}
+    width: auto;
+    padding: 15px 10px;
+  }
 
-.preview__cart,
-.preview__one-click {
-  min-width: 200px;
-  width: auto;
-}
+  .preview__cart,
+  .preview__one-click {
+    min-width: 200px;
+    width: auto;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -140,19 +149,17 @@ export default {
   }
 
   .preview__price {
-  font-size: 32px;
-}
+    font-size: 32px;
+  }
 }
 
 @media (max-width: 768px) {
+  .product__wrapper {
+    padding: 60px 60px;
+  }
 
-.product__wrapper {
-  padding: 60px 60px;
-}
-
-.preview__img {
-  max-width: 130px;
-
-}
+  .preview__img {
+    max-width: 130px;
+  }
 }
 </style>
