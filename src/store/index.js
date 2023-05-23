@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import axios from 'axios'
+import createPersistedState from 'vuex-persistedstate'
 
 const store = createStore({
     state() {
@@ -99,12 +100,20 @@ const store = createStore({
 				})
 		},
 
+		// Вход без сервера
+		log_in_develop({commit})
+		{
+			commit("authModalWindowChangeActive")
+			commit("changeAuthStatus", true)
+		},
+
 		closeErrorWindow ({ commit }) {
 			setTimeout(() => {
 				commit('authErrorWindowChangeActive')
 			}, 4000)
 		}
-	}
+	},
+	plugins: [createPersistedState()]
 })
 
 export default store;

@@ -4,6 +4,9 @@
 		<div @click="this.$store.commit('authModalWindowChangeActive')" class="close">
 			<img src="../svg/close.svg" alt="close">
 		</div>
+		<div @click="this.$store.dispatch('log_in_develop')" class="close__dev">
+			<img style="color:red" src="../svg/close.svg" alt="log_in">
+		</div>
 		<div v-show="this.$store.getters.getAuthErrorActive" class="error-panel">
 			<p class="error-panel__text">
 				{{ this.$store.getters.getAuthErrorText }}
@@ -84,6 +87,16 @@ export default {
 	top: 5%;
 	scale: 0.8;
 	cursor: pointer;
+
+	&__dev {
+		position: absolute;
+	right: 5%;
+	top: 5%;
+	scale: 0.8;
+	cursor: pointer;
+		top: 15%;
+		background-color: red;
+	}
 }
 .auth-panel-wrapper
 {
