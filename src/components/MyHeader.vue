@@ -49,7 +49,7 @@
 			</div>
 		</div>
 		<nav class="menu-buttons">
-			<router-link to="/" class="menu-button">
+			<router-link to="/categories" class="menu-button">
 				<p class="menu-button__text">
 					Все категории
 				</p>
