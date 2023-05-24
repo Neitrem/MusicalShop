@@ -34,6 +34,7 @@
 import btnAside from "@/components/UI/button-aside.vue";
 import InfoButton from "@/components/UI/InfoProductButton.vue";
 
+
 export default {
   components: { btnAside, InfoButton },
   data() {
@@ -53,11 +54,12 @@ export default {
     },
     getInfo() {
       this.info = 'Нажми на любую кнопку';
-    }
+    },
   },
   mounted() {
     this.getInfo();
-  }
+
+  },
 };
 </script>
 

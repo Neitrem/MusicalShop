@@ -1,8 +1,12 @@
 import { createStore } from "vuex";
 import axios from 'axios'
 import createPersistedState from 'vuex-persistedstate'
+import database from './modules/database.js'
 
 const store = createStore({
+	modules: {
+		database
+	},
     state() {
 		return {
 			authWindow: {
@@ -33,6 +37,7 @@ const store = createStore({
 			}
 		}
     },
+	
     mutations: {
 		authModalWindowChangeActive(state) {
 			state.authWindow.authModalWindowIsActive = !state.authWindow.authModalWindowIsActive;
@@ -75,6 +80,7 @@ const store = createStore({
 			return state.user.authorized;
 		}
 	},
+	
 	actions: {
 		// Входит в аккаунт и получает токен
 		log_in ({commit, state}, user) {
