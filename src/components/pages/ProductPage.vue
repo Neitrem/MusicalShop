@@ -34,6 +34,7 @@
 import btnAside from "@/components/UI/button-aside.vue";
 import InfoButton from "@/components/UI/InfoProductButton.vue";
 
+import { mapState, mapActions } from 'vuex';
 
 export default {
   components: { btnAside, InfoButton },
@@ -55,12 +56,18 @@ export default {
     getInfo() {
       this.info = 'Нажми на любую кнопку';
     },
+
+    ...mapActions('database', ['fetchGuitars'])
   },
   mounted() {
     this.getInfo();
-
+    this.fetchGuitars();
+  },
+  computed: {
+    ...mapState('database', ['guitars'])
   },
 };
+
 </script>
 
 <style lang="scss">

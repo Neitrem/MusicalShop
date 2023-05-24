@@ -1,11 +1,11 @@
 const state = {
-    users: [],
+    guitars: [],
     products: []
   };
   
   const mutations = {
-    setUsers(state, users) {
-      state.users = users;
+    setGuitars(state, guitars) {
+      state.guitars = guitars;
     },
     setProducts(state, products) {
       state.products = products;
@@ -13,14 +13,13 @@ const state = {
   };
   
   const actions = {
-    async fetchUsers({ commit }) {
+    async fetchGuitars({ commit }) {
       try {
-        // Загрузка данных пользователей из db.json
-        const response = await fetch('./db.json');
+        const response = await fetch('../db.json');
         const data = await response.json();
-        commit('setUsers', data.users);
+        commit('setGuitars', data.guitars);
       } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching guitars:', error);
       }
     },
     async fetchProducts({ commit }) {
