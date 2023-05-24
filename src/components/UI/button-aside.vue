@@ -11,6 +11,7 @@ export default {
 
 <style>
 
+
 .categories__btn-choose {
   background: #ffffff;
   border-radius: 15px;

@@ -30,7 +30,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped> 
 .categories__wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -38,6 +38,10 @@ export default {
   grid-gap: 80px;
   grid-template-columns: 1fr 4fr;
   grid-template-areas: "sidebar  products";
+}
+
+a {
+  color: black;
 }
 
 aside {
