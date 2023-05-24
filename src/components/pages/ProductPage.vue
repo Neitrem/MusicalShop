@@ -90,7 +90,7 @@ export default {
 
 .product__wrapper {
   background: #535353;
-  max-width: 960px;
+  max-width: 925px;
   padding: 60px 120px;
   border-radius: 15px;
   margin-bottom: 30px;

@@ -2,9 +2,12 @@
   <div class="categories__wrapper">
     <div class="products">
       <ul class="products__list">
-        <router-link v-for="guitar in guitars" :key="guitar.id" to="/gituar/id"
-          ><li class="products__item"><CardProduct :guitar="guitar" /></li
-        ></router-link>
+        <li v-for="guitar in guitars" :key="guitar.id" class="products__item">
+          <CardProduct
+            @click="$router.push(`/guitars/${guitar.id}`)"
+            :guitar="guitar"
+          />
+        </li>
       </ul>
     </div>
     <aside>
@@ -26,7 +29,7 @@ export default {
   components: {btnAside, CardProduct},
 
   methods: {
-    ...mapActions('database', ['fetchGuitars'])
+    ...mapActions('database', ['fetchGuitars']),
   },
   mounted() {
     this.fetchGuitars();
@@ -61,14 +64,12 @@ aside {
   align-items: center;
   row-gap: 15px;
   padding: 44px 23px;
-  
 }
 
 .products {
   grid-area: products;
   padding: 0;
   max-width: 900px;
-  
 }
 
 .products__list {
@@ -76,6 +77,7 @@ aside {
   flex-wrap: wrap; /* Установка свойства flex-wrap на wrap */
   column-gap: 80px;
   row-gap: 60px;
+  justify-content: space-between;
 }
 
 .products__item:hover {

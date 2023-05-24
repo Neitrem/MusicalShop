@@ -34,7 +34,7 @@ const routes = [
 		component: AllCategoriesPage
 	},
 	{
-		path: '/gituar/id',
+		path: '/guitars/:id',
 		component: ProductPage
 	},
 ];
