@@ -2,14 +2,12 @@
   <div class="categories__wrapper">
     <div class="products">
       <ul class="products__list">
-        <router-link to="/gituar/id"
-          ><li class="products__item"><CardProduct /></li
-        ></router-link>
-        <li class="products__item"><CardProduct /></li>
-        <li class="products__item"><CardProduct /></li>
-        <li class="products__item"><CardProduct /></li>
-        <li class="products__item"><CardProduct /></li>
-        <li class="products__item"><CardProduct /></li>
+        <li v-for="guitar in guitars" :key="guitar.id" class="products__item">
+          <CardProduct
+            @click="$router.push(`/guitars/${guitar.id}`)"
+            :guitar="guitar"
+          />
+        </li>
       </ul>
     </div>
     <aside>
@@ -22,15 +20,27 @@
 
 <script lang="js">
 import btnAside from '@/components/UI/button-aside.vue';
-import CardProduct from '@/components/CardProduct.vue'
+import CardProduct from '@/components/CardProduct.vue';
+
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: "AllCategoriesPage",
-  components: {btnAside, CardProduct}
+  components: {btnAside, CardProduct},
+
+  methods: {
+    ...mapActions('database', ['fetchGuitars']),
+  },
+  mounted() {
+    this.fetchGuitars();
+  },
+  computed: {
+    ...mapState('database', ['guitars'])
+  },
 };
 </script>
 
-<style>
+<style scoped>
 .categories__wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -38,6 +48,11 @@ export default {
   grid-gap: 80px;
   grid-template-columns: 1fr 4fr;
   grid-template-areas: "sidebar  products";
+  margin-bottom: 20px;
+}
+
+a {
+  color: black;
 }
 
 aside {
@@ -62,6 +77,7 @@ aside {
   flex-wrap: wrap; /* Установка свойства flex-wrap на wrap */
   column-gap: 80px;
   row-gap: 60px;
+  justify-content: space-between;
 }
 
 .products__item:hover {

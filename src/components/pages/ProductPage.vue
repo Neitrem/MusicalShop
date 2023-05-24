@@ -34,6 +34,8 @@
 import btnAside from "@/components/UI/button-aside.vue";
 import InfoButton from "@/components/UI/InfoProductButton.vue";
 
+import { mapState, mapActions } from 'vuex';
+
 export default {
   components: { btnAside, InfoButton },
   data() {
@@ -53,18 +55,29 @@ export default {
     },
     getInfo() {
       this.info = 'Нажми на любую кнопку';
-    }
+    },
+
+    ...mapActions('database', ['fetchGuitars'])
   },
   mounted() {
     this.getInfo();
-  }
+    this.fetchGuitars();
+  },
+  computed: {
+    ...mapState('database', ['guitars'])
+  },
 };
+
 </script>
 
-<style>
+<style lang="scss">
+
+@import "@/styles/variables.scss";
+
 .info__description {
   color: #fff;
   font-size: 24px;
+  @extend %text-white;
 }
 
 .info__buttons {
@@ -77,7 +90,7 @@ export default {
 
 .product__wrapper {
   background: #535353;
-  max-width: 1180px;
+  max-width: 925px;
   padding: 60px 120px;
   border-radius: 15px;
   margin-bottom: 30px;
@@ -85,6 +98,7 @@ export default {
 
 .preview__price {
   color: white;
+  @extend %text-white;
 }
 
 .preview__img {
@@ -102,6 +116,7 @@ export default {
 .preview__title {
   color: #ffffff;
   font-size: 44px;
+  @extend %text-white;
 }
 
 .preview__info {
