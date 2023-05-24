@@ -2,14 +2,9 @@
   <div class="categories__wrapper">
     <div class="products">
       <ul class="products__list">
-        <router-link to="/gituar/id"
-          ><li class="products__item"><CardProduct /></li
+        <router-link v-for="guitar in guitars" :key="guitar.id" to="/gituar/id"
+          ><li class="products__item"><CardProduct :guitar="guitar" /></li
         ></router-link>
-        <li class="products__item"><CardProduct /></li>
-        <li class="products__item"><CardProduct /></li>
-        <li class="products__item"><CardProduct /></li>
-        <li class="products__item"><CardProduct /></li>
-        <li class="products__item"><CardProduct /></li>
       </ul>
     </div>
     <aside>
@@ -22,15 +17,27 @@
 
 <script lang="js">
 import btnAside from '@/components/UI/button-aside.vue';
-import CardProduct from '@/components/CardProduct.vue'
+import CardProduct from '@/components/CardProduct.vue';
+
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: "AllCategoriesPage",
-  components: {btnAside, CardProduct}
+  components: {btnAside, CardProduct},
+
+  methods: {
+    ...mapActions('database', ['fetchGuitars'])
+  },
+  mounted() {
+    this.fetchGuitars();
+  },
+  computed: {
+    ...mapState('database', ['guitars'])
+  },
 };
 </script>
 
-<style scoped> 
+<style scoped>
 .categories__wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -38,6 +45,7 @@ export default {
   grid-gap: 80px;
   grid-template-columns: 1fr 4fr;
   grid-template-areas: "sidebar  products";
+  margin-bottom: 20px;
 }
 
 a {
@@ -53,12 +61,14 @@ aside {
   align-items: center;
   row-gap: 15px;
   padding: 44px 23px;
+  
 }
 
 .products {
   grid-area: products;
   padding: 0;
   max-width: 900px;
+  
 }
 
 .products__list {
