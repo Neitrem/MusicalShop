@@ -49,14 +49,19 @@
 			</div>
 		</div>
 		<nav class="menu-buttons">
-			<router-link to="/" class="menu-button">
+			<router-link to="/categories" class="menu-button">
 				<p class="menu-button__text">
-					Все категории
+					Гитары
 				</p>
 			</router-link>
-			<router-link to="/" class="menu-button">
+			<router-link to="/categories" class="menu-button">
 				<p class="menu-button__text">
-					О нас
+					Усилители
+				</p>
+			</router-link>
+			<router-link to="/categories" class="menu-button">
+				<p class="menu-button__text">
+					Аксессуары
 				</p>
 			</router-link>
 		</nav>

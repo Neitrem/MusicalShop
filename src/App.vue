@@ -2,7 +2,7 @@
 
 	<MyHeader></MyHeader>
 	
-	<router-view></router-view>
+	<router-view ></router-view>
 
 	<MyFooter></MyFooter>
 </template>
@@ -22,7 +22,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import '@/styles/reset.css';
 
 #app
@@ -33,6 +33,7 @@ export default {
 
 	min-width: 320px;
 }
+
 
 
 </style>

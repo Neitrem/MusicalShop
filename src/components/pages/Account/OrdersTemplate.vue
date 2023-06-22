@@ -2,13 +2,13 @@
     <div class="container-order">
       <div v-for="order in order_list" :key="order.id" class="order-item">
         <div class="item-photo">
-          <img :src="order.order_photo_link" alt=".">
+          <img :src="order.image_url" alt=".">
         </div>
         <div class="item-body">
-          <h4>Номер заказа {{order.order_number}}</h4>
-          <h2>{{order.order_name}}</h2>
-          <h3 v-if="order.is_paid === true">Оплачено ✔️</h3>
-          <h3 v-if="order.is_paid === false">Не оплачено ❌</h3>
+          <h4>Номер заказа {{order.id + 'e' + '#de' + order.id * 2}}</h4>
+          <h2>{{order.name}}</h2>
+          <h3>{{ order.status }}</h3>
+          
         </div>
       </div>
     </div>
@@ -20,23 +20,21 @@ export default {
   name: "OrdersTemplate",
   data() {
     return {
-      order_list: [
-        {
-          "id": 0,
-          "order_number": "123#456",
-          "order_name": "EPIPHONE LES PAUL STUDIO E1 EBONY",
-          "is_paid": true,
-          "order_photo_link": "https://avatars.mds.yandex.net/i?id=762c73a0d38ad7cfc5d75f40df7a3087ae345ce5-7030343-images-thumbs&n=13"
-        },
-        {
-          "id": 1,
-          "order_number": "123#457",
-          "order_name": "EPIPHONE LES PAUL STUDIO E1 EBONY",
-          "is_paid": false,
-          "order_photo_link": "https://avatars.mds.yandex.net/i?id=762c73a0d38ad7cfc5d75f40df7a3087ae345ce5-7030343-images-thumbs&n=13"
-        },
-      ]
+      order_list: []
     }
+  },
+  data() {
+    return {
+      order_list: [],
+      summa: 0
+    }
+  },
+  beforeMount() {
+    this.$store.dispatch('getOrders');
+  },
+  mounted() {
+    this.order_list = this.$store.getters.getOrders;
+    console.log(this.order_list)
   }
 }
 </script>

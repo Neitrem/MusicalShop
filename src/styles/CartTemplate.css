@@ -29,6 +29,7 @@
     flex-direction: row;
     justify-items: center;
     background-color: white;
+    
 }
 
 .item-body {
@@ -50,7 +51,7 @@
     height: 100%;
     width: 100%;
     border: 2px solid #D9D9D9;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .item-body h2 {

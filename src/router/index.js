@@ -5,7 +5,8 @@ import PersonalAccountProfile from "@/components/pages/Account/PersonalAccountPr
 import OrdersTemplate from "@/components/pages/Account/OrdersTemplate.vue";
 import CartTemplate from "@/components/pages/Account/CartTemplate.vue";
 import BaseTemplateLeftMenu from "@/components/BaseTemplateLeftMenu.vue";
-
+import AllCategoriesPage from "@/components/pages/AllCategoriesPage.vue";
+import ProductPage from "@/components/pages/ProductPage.vue";
 
 const routes = [
 	{path: '/', component: MainPage},
@@ -28,6 +29,14 @@ const routes = [
 		]
 	},
 	{path: '/', component: MainPage},
+	{
+		path: '/categories',
+		component: AllCategoriesPage
+	},
+	{
+		path: '/guitars/:id',
+		component: ProductPage
+	},
 ];
 
 const router = createRouter({
