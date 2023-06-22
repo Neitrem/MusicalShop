@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import axios from 'axios'
-import createPersistedState from 'vuex-persistedstate'
+//import createPersistedState from 'vuex-persistedstate'
 import database from './modules/database.js'
 
 const store = createStore({
@@ -21,18 +21,21 @@ const store = createStore({
 			},
 			
 			user: {
-				authorized: false,
+				authorized: true,
 				tokens: {
-					access: '',
+					access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg3NDQ5MjA3LCJpYXQiOjE2ODc0NDg5MDcsImp0aSI6IjZlY2Y4OWRkZDNiMDQ3MGJhMmIxMTIxNTE1ZjI5ZjkzIiwidXNlcl9pZCI6MX0.CKZXXjHSc34qPZ0o53vgD1jtdaHfOGqvFWOcB4Mqlp0',
 					refresh: ''
 				},
 				info: {
-					name: '',
+					name: 'dwddd',
 					role: '',
 					email: '',
-					birth_date: '',
-					city: ''
-				}
+					birth_date: 'wdwdd',
+					city: '',
+					phone: ''
+				},
+				cart: [],
+				orders: []
 				
 			}
 		}
@@ -61,7 +64,26 @@ const store = createStore({
 
 		changeAuthStatus(state, status) {
 			state.user.authorized = status
-		}
+		},
+
+		setUserInfo(state, data)
+		{
+			state.user.info.name = data.name
+			state.user.info.role = data.role
+			state.user.info.email = data.email
+			state.user.info.birth_date = data.birth_date
+			state.user.info.city = data.city
+			state.user.info.phone = data.phone
+		},
+
+		setUserCart(state, data) {
+			state.user.cart = data.items
+		},
+
+		setUserOrders(state, data) {
+			state.user.orders = data.items
+		},
+		
 	},
 	getters: {
 		getAuthModalWindowActive(state) {
@@ -78,6 +100,18 @@ const store = createStore({
 
 		getAuthState(state) {
 			return state.user.authorized;
+		},
+
+		getCart(state) {
+			return state.user.cart
+		},
+
+		getOrders(state) {
+			return state.user.orders
+		},
+
+		getUserInfo(state) {
+			return state.user.info
 		}
 	},
 	
@@ -94,6 +128,20 @@ const store = createStore({
 					commit('setAccessToken', response.data.access)
 					commit("authModalWindowChangeActive")
 					commit("changeAuthStatus", true)
+					commit('setUserInfo', response.data)
+					
+					const config = {
+						headers: { Authorization: `Bearer ${state.user.tokens.access}` }
+					};
+					console.log(config)
+					axios
+						.get(state.api.api_base + 'users/account/', config, config)
+						.then(response => {
+							console.log(response)
+							console.log('ded')
+							commit('setUserInfo', response.data)
+						})
+					
 				})
 				.catch((err) => {
 					console.log('ERROR::LOG_IN' + '/n' + err)
@@ -113,13 +161,56 @@ const store = createStore({
 			commit("changeAuthStatus", true)
 		},
 
+		exit({commit, state})
+		{
+			const config = {
+				headers: { Authorization: `Bearer ${state.user.tokens.access}` }
+			};
+			console.log(config)
+			axios
+				.post(state.api.api_base + 'users/logout/', config, config)
+				.then(response => {
+					console.log(response)
+					commit('setAccessToken', '')
+					commit("changeAuthStatus", false),
+					localStorage.clear()
+				})
+		},
+
 		closeErrorWindow ({ commit }) {
 			setTimeout(() => {
 				commit('authErrorWindowChangeActive')
 			}, 4000)
-		}
+		},
+
+		getCart({commit, state}) {
+			const config = {
+				headers: { Authorization: `Bearer ${state.user.tokens.access}` }
+			};
+			console.log(config)
+			axios
+				.get(state.api.api_base + 'carts/get/', config, config)
+				.then(response => {
+					console.log(response)
+					commit('setUserCart', response.data)
+				})
+		},
+
+		getOrders({commit, state}) {
+			const config = {
+				headers: { Authorization: `Bearer ${state.user.tokens.access}` }
+			};
+			console.log(config)
+			axios
+				.get(state.api.api_base + 'orders/get/', config, config)
+				.then(response => {
+					console.log(response)
+					commit('setUserOrders', response.data)
+				})
+		},
+
+		
 	},
-	plugins: [createPersistedState()]
 })
 
 export default store;

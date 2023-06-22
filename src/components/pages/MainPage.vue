@@ -3,30 +3,30 @@
     <vCarousel :itemArray="cards"> </vCarousel>
     <vBottomLine />
     <div class="categories">
-      <div class="categories-item">
+      <router-link to="/categories" class="categories-item">
         <img
           src="../../img/categories-1.png"
           alt=""
           class="categories-item__img"
         />
         <p class="categories-item__text">Гитары</p>
-      </div>
-      <div class="categories-item">
+      </router-link>
+      <router-link to="/categories" class="categories-item">
         <img
           src="../../img/categories-2.png"
           alt=""
           class="categories-item__img"
         />
         <p class="categories-item__text">Усилители</p>
-      </div>
-      <div class="categories-item">
+      </router-link>
+      <router-link to="/categories" class="categories-item">
         <img
           src="../../img/categories-3.png"
           alt=""
           class="categories-item__img"
         />
         <p class="categories-item__text">Аксессуары</p>
-      </div>
+      </router-link>
     </div>
     <button class="view-all">Смотреть все</button>
   </div>
